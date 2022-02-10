@@ -30,7 +30,7 @@ const generateTokens = payload => {
         const refestToken = jwt.sign({id, username}, process.env.REFEST_TOKEN_SECRET, {
             expiresIn: "1h"  
         })
-        
+
         return {accessToken, refestToken}
 }
 
@@ -38,6 +38,7 @@ const updaterefestToken= (username, refestToken) => {
     users = users.map(( item) => {
         if(item.username == username){
             console.log('item', item);
+            
             return {
                 ...item,
                 refestToken
